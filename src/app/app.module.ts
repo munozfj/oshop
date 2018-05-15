@@ -21,6 +21,7 @@ import { MyOrdersComponent } from './components/user/my-orders/my-orders.compone
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminGuard } from './guards/admin.guard';
 
 
 
@@ -47,7 +48,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     NgbModule.forRoot()
   ],
-  providers: [ AuthGuard ],
+  providers: [
+    AuthGuard,
+    AdminGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
