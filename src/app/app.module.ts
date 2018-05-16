@@ -22,6 +22,9 @@ import { AdminProductsComponent } from './components/admin/admin-products/admin-
 import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminGuard } from './guards/admin.guard';
+import { AdminProductsFormComponent } from './components/admin/admin-products-form/admin-products-form.component';
+import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 
 
 
@@ -38,7 +41,8 @@ import { AdminGuard } from './guards/admin.guard';
     CheckOutComponent,
     MyOrdersComponent,
     AdminProductsComponent,
-    AdminOrdersComponent
+    AdminOrdersComponent,
+    AdminProductsFormComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { AdminGuard } from './guards/admin.guard';
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything en Firebase
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FormsModule,
+    CustomFormsModule
   ],
   providers: [
     AuthGuard,
