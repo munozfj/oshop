@@ -76,4 +76,8 @@ export class AdminProductsFormComponent implements OnInit {
     this.prodService.deleteProduct(this.product);
     this.router.navigate(['/admin/products']);
   }
+
+  onCancel() {
+    this.router.navigate(['/admin/products']);
+  }
 }

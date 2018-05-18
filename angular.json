@@ -24,6 +24,8 @@
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/font-awesome/css/font-awesome.min.css",
+              "./node_modules/@fortawesome/fontawesome/styles.css",
               "src/styles.css",
               {
                 "input": "./node_modules/bootstrap/dist/css/bootstrap.css"

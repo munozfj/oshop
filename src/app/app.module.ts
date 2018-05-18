@@ -25,6 +25,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { AdminProductsFormComponent } from './components/admin/admin-products-form/admin-products-form.component';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
+import { DataTableModule } from 'angular5-data-table';
 
 
 
@@ -52,7 +53,8 @@ import { CustomFormsModule } from 'ng2-validation';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     NgbModule.forRoot(),
     FormsModule,
-    CustomFormsModule
+    CustomFormsModule,
+    DataTableModule.forRoot()
   ],
   providers: [
     AuthGuard,

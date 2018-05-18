@@ -60,16 +60,17 @@
 
       <div>
         <button type="submit" class="btn btn-success mr-3">Save</button>
-        <button type="button" (click)="onDelete()" class="btn btn-danger mr-3">Delete</button>
+        <button *ngIf="product.id" type="button" (click)="onDelete()" class="btn btn-danger mr-3">Delete</button>
+        <button *ngIf="!product.id" type="button" (click)="onCancel()" class="btn btn-danger mr-3">Cancel</button>
       </div>
 
     </form>
   </div>
-  <div class="col-12 col-md-6 card">
-    <img class="card-img-top" [src]="inputUrl.value" [alt]="inputName.value">
+  <div *ngIf="product.name" class="col-12 col-md-6 card">
+    <img *ngIf="product.url"  class="card-img-top" [src]="product.url" [alt]="product.name">
     <div class="card-body">
-      <h5 class="card-title">{{ inputName.value }}</h5>
-      <p class="card-text">{{ inputPrice.value | currency:'USD':'symbol-narrow':'1.2-2' }}</p>
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.price | currency:'USD':'symbol-narrow':'1.2-2' }}</p>
     </div>
   </div>
 </div>

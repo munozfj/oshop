@@ -6,21 +6,41 @@
         <input type="text" class="form-control" #queryStm (keyup)="filter(queryStm.value)" name="search" id="search" placeholder="Search ...">
     </div>
 
-    <table class="table table-hover table-bordered mt-3">
-      <thead class="thead-dark">
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let prod of filteredProducts" >
-          <td>{{ prod.name }}</td>
-          <td>{{ prod.price | currency:'USD':'symbol-narrow':'1.2-2' }} </td>
-          <td> <a [routerLink]="['/admin/products' , prod.id ]">Edit</a> </td>
-        </tr>
-      </tbody>
-    </table>
+     <data-table id="my-products"
+      [title]="'Products'"
+      [items]="items"
+      [itemCount]="itemCount"
+      (reload)="reloadItems($event)"
+      >
+      <data-table-column
+            [property]="'name'"
+            [header]="'Name'"
+            [sortable]="true"
+            [resizable]="true"  >
+        </data-table-column>
+
+        <data-table-column
+            [property]="'price'"
+            [header]="'Price'"
+            [sortable]="true">
+            /* Se agrega este ng template porque price tiene un formato especial */
+            <ng-template #dataTableCell let-item="item">
+                <span>{{ item.price | currency:'USD':'symbol-narrow' }}</span>
+            </ng-template>
+        </data-table-column>
+
+
+        <data-table-column
+        [header]="'Action'">
+            /* Se agrega este ng template porque price tiene un formato especial */
+            <ng-template #dataTableCell let-item="item">
+                <a [routerLink]="['/admin/products' , item.id ]"><i class="fa fa-pencil-square" ></i></a>
+            </ng-template>
+        </data-table-column>
+
+
+
+    </data-table>
+
   </div>
 </div>
